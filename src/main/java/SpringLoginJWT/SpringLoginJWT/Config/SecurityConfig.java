@@ -17,14 +17,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .csrf(csrf -> csrf.disable())
+                .csrf(csrf -> csrf.disable()) // validaciones csrf se instancia que se desvilite
 
                 .authorizeHttpRequests(authRequest ->
                         authRequest
                             .requestMatchers("/auth/**").permitAll()
                             .anyRequest().authenticated()
                         )
-                .formLogin(withDefaults())
+                .formLogin(withDefaults()) //habilita el formulario por defecto de spring security
                 .build();
     }
 
