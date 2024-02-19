@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/api/v1")
-@RequiredArgsConstructor // obtener todos los argumentos del metodo constructor
-
+@RequestMapping("/api/v1")
+@RequiredArgsConstructor
 public class DemoController {
 
     @PostMapping(value = "demo")
-    public String welcome(){
+    public String welcome()
+    {
         return "Welcome from secure endpoint";
     }
-
 }
+
 
 

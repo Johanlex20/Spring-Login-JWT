@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-
 public class AuthService {
 
     private final UserRepository userRepository;
@@ -23,7 +22,7 @@ public class AuthService {
 
     public AuthResponse login(LoginRequest request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
-        User user=userRepository.findByUsername(request.getUsername()).orElseThrow();
+        UserDetails user=userRepository.findByUsername(request.getUsername()).orElseThrow();
         String token=jwtService.getToken(user);
         return AuthResponse.builder()
                 .token(token)
@@ -48,4 +47,5 @@ public class AuthService {
                 .build();
 
     }
+
 }

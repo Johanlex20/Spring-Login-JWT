@@ -6,16 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder // para construcion de objetos
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
-
+@AllArgsConstructor
 public class RegisterRequest {
-
     String username;
     String password;
     String firstname;
     String lastname;
     String country;
-
 }
