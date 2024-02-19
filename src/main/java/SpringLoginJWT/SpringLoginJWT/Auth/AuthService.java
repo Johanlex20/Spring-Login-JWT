@@ -5,6 +5,7 @@ import SpringLoginJWT.SpringLoginJWT.User.Role;
 import SpringLoginJWT.SpringLoginJWT.User.User;
 import SpringLoginJWT.SpringLoginJWT.User.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,6 +15,8 @@ public class AuthService {
 
     private final UserRepository userRepository; // esto es igual a @Autowire
     private final JwtService jwtService;
+    private final PasswordEncoder passwordEncoder;
+
     public AuthResponse login(LoginRequest request) {
         return null;
     }
@@ -21,7 +24,7 @@ public class AuthService {
     public AuthResponse regiter(RegisterRequest request) {
         User user = User.builder()
                 .username(request.getUsername())
-                .password(request.getPassword())
+                .password(passwordEncoder.encode( request.getPassword()))
                 .firstname(request.getFirstname())
                 .lastname(request.lastname)
                 .country(request.getCountry())
