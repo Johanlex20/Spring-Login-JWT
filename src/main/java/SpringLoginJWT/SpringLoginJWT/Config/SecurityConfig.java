@@ -17,7 +17,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .csrf(csrf -> csrf.disable()) // validaciones csrf se instancia que se desvilite
+                .csrf(csrf -> csrf.disable()) // validaciones csrf se instancia que se desabilite
 
                 .authorizeHttpRequests(authRequest ->
                         authRequest

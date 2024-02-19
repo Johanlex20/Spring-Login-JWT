@@ -20,7 +20,7 @@ public class AuthService {
 
     public AuthResponse regiter(RegisterRequest request) {
         User user = User.builder()
-            .username(request.getUsername())
+                .username(request.getUsername())
                 .password(request.getPassword())
                 .firstname(request.getFirstname())
                 .lastname(request.lastname)
